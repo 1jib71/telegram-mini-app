@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Telegram Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello from Telegram!</h1>
+  <p id="user"></p>
+  <button onclick="openOtherApp()">Go to My Other App</button>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    const user = tg.initDataUnsafe?.user?.first_name || "Guest";
+    document.getElementById("user").innerText = `Welcome, ${user}`;
+
+    function openOtherApp() {
+      window.location.href = "https://example.com"; // Replace with another mini app URL
+    }
+  </script>
+</body>
+</html>
